@@ -7,9 +7,6 @@ metadata:
     app.kubernetes.io/service: backend
 spec:
   replicas: 1
-  updateStrategy:
-    rollingUpdate: {}
-    type: RollingUpdate
   selector:
     matchLabels:
       app.kubernetes.io/name: vikunja-backend
