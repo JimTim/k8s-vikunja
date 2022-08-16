@@ -77,7 +77,11 @@ spec:
             memory: "1024M"
             cpu: "500m"
         volumeMounts:
-        - name: data
+        - name: vikunja-backend
           mountPath: /app/vikunja/files
       restartPolicy: Always
       terminationGracePeriodSeconds: 60
+      volumes:
+        - name: vikunja-backend
+          persistentVolumeClaim:
+            claimName: vikunja-backend
