@@ -28,9 +28,9 @@ spec:
           runAsUser: 1001
         env:
         - name: PUID
-          value: 1001
+          value: "1001"
         - name: PGID
-          value: 1001
+          value: "1001"
         - name: VIKUNJA_API_URL
           value: "$(VIKUNJA_BACKEND_URL)/api/v1"
         ports:

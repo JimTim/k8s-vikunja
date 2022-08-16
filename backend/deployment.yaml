@@ -29,9 +29,9 @@ spec:
           runAsUser: 1001
         env:
         - name: PUID
-          value: 1001
+          value: "1001"
         - name: PGID
-          value: 1001
+          value: "1001"
         - name: VIKUNJA_DATABASE_USER
           valueFrom:
             secretKeyRef:
