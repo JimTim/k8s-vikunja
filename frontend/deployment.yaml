@@ -17,20 +17,11 @@ spec:
         app.kubernetes.io/name: vikunja-frontend
         app.kubernetes.io/service: frontend
     spec:
-      securityContext:
-        fsGroup: 1001
       containers:
       - name: api
         image: frontend
         imagePullPolicy: Always
-        securityContext:
-          runAsNonRoot: true
-          runAsUser: 1001
         env:
-        - name: PUID
-          value: "1001"
-        - name: PGID
-          value: "1001"
         - name: VIKUNJA_API_URL
           value: "$(VIKUNJA_BACKEND_URL)/api/v1"
         ports:

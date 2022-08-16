@@ -17,21 +17,11 @@ spec:
         app.kubernetes.io/name: vikunja-backend
         app.kubernetes.io/service: backend
     spec:
-      securityContext:
-        fsGroup: 1001
       containers:
       - name: api
         image: backend
         imagePullPolicy: Always
-
-        securityContext:
-          runAsNonRoot: true
-          runAsUser: 1001
         env:
-        - name: PUID
-          value: "1001"
-        - name: PGID
-          value: "1001"
         - name: VIKUNJA_DATABASE_USER
           valueFrom:
             secretKeyRef:
@@ -54,8 +44,6 @@ spec:
         - name: VIKUNJA_SERVICE_FRONTENDURL
           value: "$(VIKUNJA_FRONTEND_URL)"
         envFrom:
-          - secretRef:
-              name: database
           - secretRef:
               name: vikunja-backend-mail-secret
           - configMapRef:
